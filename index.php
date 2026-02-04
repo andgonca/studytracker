@@ -1,6 +1,11 @@
 <?php
 require_once 'config.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // Handle Form Submission (Add or Update)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subdomain_id = $_POST['subdomain_id'];
@@ -158,6 +163,7 @@ while($s = $sub_res->fetch_assoc()) {
             <div class="navbar-nav">
                 <a class="nav-link active" href="index.php">Tracker</a>
                 <a class="nav-link" href="maintenance.php">Maintenance</a>
+                <a class="nav-link text-danger" href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>)</a>
             </div>
         </div>
     </nav>

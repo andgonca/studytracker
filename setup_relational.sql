@@ -1,5 +1,5 @@
 SET FOREIGN_KEY_CHECKS=0;
-DROP TABLE IF EXISTS links, subjects, subdomains, subdomain_links, domains, domain_links, certifications, study_items;
+DROP TABLE IF EXISTS links, subjects, subdomains, subdomain_links, domains, domain_links, certifications, study_items, users;
 SET FOREIGN_KEY_CHECKS=1;
 
 CREATE TABLE certifications (
@@ -51,3 +51,13 @@ CREATE TABLE links (
     url TEXT NOT NULL,
     FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
 );
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Default user: admin / password
+INSERT INTO users (username, password) VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');

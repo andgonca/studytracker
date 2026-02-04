@@ -1,6 +1,11 @@
 <?php
 require_once 'config.php';
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
 // Handle Adds
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['add_cert'])) {
@@ -63,6 +68,7 @@ $subdomains = $conn->query("SELECT s.*, d.name as domain_name, c.name as cert_na
             <div class="navbar-nav">
                 <a class="nav-link" href="index.php">Tracker</a>
                 <a class="nav-link active" href="maintenance.php">Maintenance</a>
+                <a class="nav-link text-danger" href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>)</a>
             </div>
         </div>
     </nav>

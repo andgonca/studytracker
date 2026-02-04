@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', getenv('DB_USERNAME'));
 define('DB_PASSWORD', getenv('DB_PASSWORD'));
