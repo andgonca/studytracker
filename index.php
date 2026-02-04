@@ -115,17 +115,17 @@ if ($result->num_rows > 0) {
 
 // Fetch Hierarchy for Dropdowns (JSON)
 $hierarchy = [];
-$cert_res = $conn->query("SELECT * FROM certifications ORDER BY name");
+$cert_res = $conn->query("SELECT * FROM certifications ORDER BY certification_id");
 while($c = $cert_res->fetch_assoc()) {
     $hierarchy[$c['id']] = ['name' => $c['name'], 'domains' => []];
 }
-$dom_res = $conn->query("SELECT * FROM domains ORDER BY name");
+$dom_res = $conn->query("SELECT * FROM domains ORDER BY domain_id");
 while($d = $dom_res->fetch_assoc()) {
     if(isset($hierarchy[$d['certification_id']])) {
         $hierarchy[$d['certification_id']]['domains'][$d['id']] = ['name' => $d['name'], 'subdomains' => []];
     }
 }
-$sub_res = $conn->query("SELECT * FROM subdomains ORDER BY name");
+$sub_res = $conn->query("SELECT * FROM subdomains ORDER BY subdomain_id");
 while($s = $sub_res->fetch_assoc()) {
     // Find which cert this subdomain belongs to
     foreach($hierarchy as $cid => $cert) {
