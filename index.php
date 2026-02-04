@@ -61,7 +61,7 @@ $sql = "SELECT s.*, sd.name as subdomain, sd.domain_id, d.name as domain, d.cert
         JOIN subdomains sd ON s.subdomain_id = sd.id 
         JOIN domains d ON sd.domain_id = d.id 
         JOIN certifications c ON d.certification_id = c.id 
-        ORDER BY s.subject_id";
+        ORDER BY sd.domain_id, s.subdomain_id, s.subject_id";
 $result = $conn->query($sql);
 
 // Fetch Links for display (Subjects)
@@ -115,17 +115,17 @@ if ($result->num_rows > 0) {
 
 // Fetch Hierarchy for Dropdowns (JSON)
 $hierarchy = [];
-$cert_res = $conn->query("SELECT * FROM certifications ORDER BY certification_id");
+$cert_res = $conn->query("SELECT * FROM certifications ORDER BY name");
 while($c = $cert_res->fetch_assoc()) {
     $hierarchy[$c['id']] = ['name' => $c['name'], 'domains' => []];
 }
-$dom_res = $conn->query("SELECT * FROM domains ORDER BY domain_id");
+$dom_res = $conn->query("SELECT * FROM domains ORDER BY name");
 while($d = $dom_res->fetch_assoc()) {
     if(isset($hierarchy[$d['certification_id']])) {
         $hierarchy[$d['certification_id']]['domains'][$d['id']] = ['name' => $d['name'], 'subdomains' => []];
     }
 }
-$sub_res = $conn->query("SELECT * FROM subdomains ORDER BY subdomain_id");
+$sub_res = $conn->query("SELECT * FROM subdomains ORDER BY name");
 while($s = $sub_res->fetch_assoc()) {
     // Find which cert this subdomain belongs to
     foreach($hierarchy as $cid => $cert) {
