@@ -127,6 +127,7 @@ INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.micros
     INSERT INTO subdomain_links (subdomain_id, url) VALUES (@sub_id, 'https://learn.microsoft.com/en-us/training/modules/design-compute-solution/');
     
     INSERT INTO subjects (subdomain_id, name) VALUES 
+    (@sub_id, 'Specify components of a compute solution based on workload requirements'),
     (@sub_id, 'Recommend a virtual machine-based solution'),
     (@sub_id, 'Recommend a container-based solution'),
     (@sub_id, 'Recommend a serverless-based solution'),
