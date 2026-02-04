@@ -61,7 +61,7 @@ $sql = "SELECT s.*, sd.name as subdomain, sd.domain_id, d.name as domain, d.cert
         JOIN subdomains sd ON s.subdomain_id = sd.id 
         JOIN domains d ON sd.domain_id = d.id 
         JOIN certifications c ON d.certification_id = c.id 
-        ORDER BY  c.certification_id, d.domain_id, sd.subdomain_id, s.subject_id";
+        ORDER BY c.name, d.name, sd.name, s.name";
 $result = $conn->query($sql);
 
 // Fetch Links for display (Subjects)
