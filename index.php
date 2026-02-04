@@ -163,6 +163,7 @@ while($s = $sub_res->fetch_assoc()) {
             <div class="navbar-nav">
                 <a class="nav-link active" href="index.php">Tracker</a>
                 <a class="nav-link" href="maintenance.php">Maintenance</a>
+                <a class="nav-link" href="users.php">Users</a>
                 <a class="nav-link text-danger" href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>)</a>
             </div>
         </div>

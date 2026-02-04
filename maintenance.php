@@ -68,6 +68,7 @@ $subdomains = $conn->query("SELECT s.*, d.name as domain_name, c.name as cert_na
             <div class="navbar-nav">
                 <a class="nav-link" href="index.php">Tracker</a>
                 <a class="nav-link active" href="maintenance.php">Maintenance</a>
+                <a class="nav-link" href="users.php">Users</a>
                 <a class="nav-link text-danger" href="logout.php">Logout (<?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>)</a>
             </div>
         </div>
