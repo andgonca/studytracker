@@ -12,7 +12,7 @@ SET @cert_id = LAST_INSERT_ID();
 -- ========================================================
 -- Domain 1: Design identity, governance, and monitoring solutions
 -- ========================================================
-INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design identity, governance, and monitoring solutions (25–30%)');
+INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design identity, governance, and monitoring solutions 25-30');
 SET @dom_id = LAST_INSERT_ID();
 INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.microsoft.com/en-us/training/paths/design-identity-governance-monitor-solutions/');
 
@@ -51,7 +51,7 @@ INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.micros
 -- ========================================================
 -- Domain 2: Design data storage solutions
 -- ========================================================
-INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design data storage solutions (20–25%)');
+INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design data storage solutions 20–25');
 SET @dom_id = LAST_INSERT_ID();
 INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.microsoft.com/en-us/training/paths/design-data-storage-solutions/');
 
@@ -89,7 +89,7 @@ INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.micros
 -- ========================================================
 -- Domain 3: Design business continuity solutions
 -- ========================================================
-INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design business continuity solutions (15–20%)');
+INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design business continuity solutions 15–20');
 SET @dom_id = LAST_INSERT_ID();
 INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.microsoft.com/en-us/training/paths/design-business-continuity-solutions/');
 
@@ -117,7 +117,7 @@ INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.micros
 -- ========================================================
 -- Domain 4: Design infrastructure solutions
 -- ========================================================
-INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design infrastructure solutions (30–35%)');
+INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design infrastructure solutions 30–35');
 SET @dom_id = LAST_INSERT_ID();
 INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.microsoft.com/en-us/training/paths/design-infranstructure-solutions/');
 
