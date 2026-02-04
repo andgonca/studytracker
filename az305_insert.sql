@@ -53,6 +53,7 @@ INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.micros
 -- ========================================================
 INSERT INTO domains (certification_id, name) VALUES (@cert_id, 'Design data storage solutions (20–25%)');
 SET @dom_id = LAST_INSERT_ID();
+INSERT INTO domain_links (domain_id, url) VALUES (@dom_id, 'https://learn.microsoft.com/en-us/training/paths/design-data-storage-solutions/');
 
     -- Subdomain 2.1
     INSERT INTO subdomains (domain_id, name) VALUES (@dom_id, 'Design data storage solutions for relational data');
